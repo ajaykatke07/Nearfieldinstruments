@@ -31,7 +31,7 @@ data "aws_iam_policy_document" "lambda_policy" {
       "ec2:DescribeInstances",
       "ce:GetCostAndUsage"
     ]
-    resources = ["*"] # Scope this down if specific resources are available
+    resources = ["*"] 
     effect    = "Allow"
   }
 
@@ -54,8 +54,8 @@ data "aws_iam_policy_document" "lambda_policy" {
       "s3:ListBucket"
     ]
     resources = [
-      aws_s3_bucket.terraform_backend.arn,              # S3 bucket itself
-      "${aws_s3_bucket.terraform_backend.arn}/*"        # All objects in the bucket
+      aws_s3_bucket.terraform_backend.arn,             
+      "${aws_s3_bucket.terraform_backend.arn}/*"       
     ]
     effect    = "Allow"
   }
